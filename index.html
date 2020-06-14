@@ -61,11 +61,11 @@
             {
                 goku1.i=0;
             }
-            if(arr.keys[38]==null)
+            if(arr.keys[98]==null)
             {
                 goku2.wall=false;
             }
-            if(arr.keys[87]==null)
+            if(arr.keys[38]==null)
             {
                 goku2.i=0;
             }
@@ -299,15 +299,11 @@
             {
                 if(find==1)
                 {
-                this.xgokufake=goku1.xgoku;
-                this.ygokufake=goku1.ygoku+cv.height*0.66/15;    
                 this.xshield=goku1.xgoku;
                 this.yshield=goku1.ygoku+cv.height*0.66/15;
                 }
                 else
                 {
-                    this.xgokufake=goku2.xgoku;
-                    this.ygokufake=goku2.ygoku+cv.height*0.66/15;
                     this.xshield=goku2.xgoku;
                     this.yshield=goku2.ygoku+cv.height*0.66/15;
                 }
@@ -372,12 +368,23 @@
                     this.speedshield=-this.speedshield;
                     this.alpha=2*3.14-this.alpha;
                 }
-                if(this.xshield+cv.height/25>=this.xgokufake && this.xshield<=this.xgokufake+cv.height/15&&this.yshield+cv.height/25>=this.ygokufake&&this.yshield<=this.ygokufake+cv.height/15)
-            {
-                this.hold=false;
-                this.put=false;
-                
-            }
+                if(find==1)
+                {
+                    if(this.xshield+cv.height/25>=goku1.xgoku && this.xshield<=goku1.xgoku+cv.height/15&&this.yshield>=goku1.ygoku&&this.yshield+cv.height/25<=goku1.ygoku+1.66*cv.height/15)
+                   {
+                    this.hold=false;
+                    this.put=false;
+                    }
+                }
+                else
+                {
+                    if(this.xshield+cv.height/25>=goku2.xgoku && this.xshield<=goku2.xgoku+cv.height/15&&this.yshield>=goku2.ygoku&&this.yshield+cv.height/25<=goku2.ygoku+1.66*cv.height/15)
+                   {
+                    this.hold=false;
+                    this.put=false;
+                    }
+                }
+              
         }
         this.drawing = function()
         {
